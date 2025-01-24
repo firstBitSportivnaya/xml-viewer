@@ -3,67 +3,11 @@
 	<head>
 		<meta charset="UTF-8" />
 		<title>Просмотр XML-файла</title>
-		<link rel="stylesheet" href="css/atom-one-light.min.css" />
-		<style>
-			body {
-				font-family: sans-serif;
-				margin: 20px;
-			}
-			.code-container {
-				display: flex;
-				border: 1px solid #ccc;
-				overflow: auto;
-				max-height: 80vh;
-				font-size: 14px;
-				line-height: 1.5em;
-			}
-			.line-numbers {
-				background: #f7f7f7;
-				padding: 10px 5px 10px 10px;
-				text-align: right;
-				color: #888;
-				user-select: none;
-				border-right: 1px solid #ddd;
-			}
-			.line-numbers span {
-				display: block;
-			}
-			/* Блок кода */
-			pre code {
-				flex: 1;
-				padding: 10px;
-				overflow: auto;
-			}
-		</style>
-		<script src="js/highlight.min.js"></script>
-		<script>
-			function start(xml, mode) {
-				const codeBlock = document.getElementById("codeBlock");
-				const lineNumbers = document.getElementById("lineNumbers");
-
-				const escaped = xml
-					.replace(/&/g, "&amp;")
-					.replace(/</g, "&lt;")
-					.replace(/>/g, "&gt;");
-
-				codeBlock.innerHTML = escaped;
-
-				const lines = escaped.split("\n").length;
-				lineNumbers.innerHTML = "";
-				for (let i = 1; i <= lines; i++) {
-					const lineSpan = document.createElement("span");
-					lineSpan.textContent = i;
-					lineNumbers.appendChild(lineSpan);
-				}
-
-				hljs.highlightElement(codeBlock);
-			}
-		</script>
+		<link rel="stylesheet" href="css/style.css" />
+		<script src="js/xmlHighlighter.js"></script>
 	</head>
 	<body>
-		<div class="code-container">
-			<div class="line-numbers" id="lineNumbers"></div>
-			<pre><code id="codeBlock" class="language-xml"></code></pre>
-		</div>
+		<div class="code-container" id="codeContainer"></div>
+		<script src="js/script.js"></script>
 	</body>
 </html>
