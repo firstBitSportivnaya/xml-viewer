@@ -1,6 +1,46 @@
-[![Release](https://img.shields.io/github/v/release/firstBitSportivnaya/xml-viewer?include_prereleases&label=last%20release&style=badge)](https://github.com/firstBitSportivnaya/xml-viewer/releases/latest)
-[![GitHub issues](https://img.shields.io/github/issues-raw/firstBitSportivnaya/xml-viewer?style=badge)](https://github.com/firstBitSportivnaya/xml-viewer/issues)
-[![License](https://img.shields.io/github/license/firstBitSportivnaya/xml-viewer?style=badge)](https://github.com/firstBitSportivnaya/xml-viewer/blob/develop/LICENSE)
+# XML Viewer для 1С
 
-# xml-viewer
-Инструмент для визуализации и подсветки XML-файлов в 1С. Предоставляет интуитивно понятный интерфейс с номерами строк, форматированием текста, своим модулем поиска и подсветкой синтаксиса.
+XML Viewer - компонент для отображения XML с подсветкой синтаксиса и древовидным представлением.
+
+## Возможности
+
+- Подсветка синтаксиса XML
+- Переключение между режимами "Код" и "Дерево"
+- Копирование XML в буфер обмена
+- Нумерация строк
+- Поддержка больших XML файлов
+
+## Быстрая установка
+
+**Рекомендуется:** Используйте последний актуальный билд (.zip архив) из релизов.
+
+## Сборка (если нужны изменения)
+
+Если хотите вносить изменения в код:
+
+1. Установить зависимости:
+```bash
+npm i
+```
+
+2. Собрать проект:
+```bash
+npm run build
+```
+
+3. Заархивировать содержимое папки `build`
+
+4. Загрузить архив в Общий Макет 1С (в пбп это `пбп_XMLEditor`)
+
+## Использование в 1С
+
+Для отображения XML вызовите функцию `start` и передайте строку с XML:
+
+```javascript
+start(xmlString);
+```
+
+Пример:
+```javascript
+start('<?xml version="1.0"?><root><item>test</item></root>');
+```
