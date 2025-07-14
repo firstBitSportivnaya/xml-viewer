@@ -133,7 +133,7 @@ const XmlViewer = ({ xmlString }) => {
 
 
   return (
-    <div style={{ fontFamily: 'Arial, sans-serif' }}>
+    <div style={{ fontFamily: 'Arial, sans-serif', height: '100vh', display: 'flex', flexDirection: 'column' }}>
       <div style={{ 
         position: 'fixed',
         top: 0,
@@ -146,7 +146,9 @@ const XmlViewer = ({ xmlString }) => {
         display: 'flex', 
         gap: '10px', 
         alignItems: 'center',
-        boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+        boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+        height: '80px',
+        boxSizing: 'border-box'
       }}>
         <button 
           onClick={() => setViewMode('code')}
@@ -205,7 +207,12 @@ const XmlViewer = ({ xmlString }) => {
 
       </div>
 
-      <div style={{ marginTop: '80px' }}>
+      <div style={{ 
+        marginTop: '80px',
+        height: 'calc(100vh - 80px)',
+        overflow: 'auto',
+        padding: '0 20px 20px 20px'
+      }}>
       {initialLoading ? (
         <div style={{
           display: 'flex',
